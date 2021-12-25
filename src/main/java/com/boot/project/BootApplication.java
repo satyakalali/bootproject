@@ -9,8 +9,10 @@ public class BootApplication {
 
 	public static void main(String[] args) {
 
-		
 		ApplicationContext context = SpringApplication.run(BootApplication.class, args);
+
+		VogoBike bike = context.getBean(VogoBike.class);
+		System.out.println(bike);
 	}
 
 }
