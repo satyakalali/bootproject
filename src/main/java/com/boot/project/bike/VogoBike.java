@@ -12,4 +12,5 @@ public class VogoBike {
 
 	private int vogo_id;
 	private String bike_name;
+	private double cost;
 }

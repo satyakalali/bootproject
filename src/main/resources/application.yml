@@ -6,3 +6,4 @@ spring:
   banner-mode: console
 vogo_id: 12345
 bike_name: Vogo3go
+cost: 50000
