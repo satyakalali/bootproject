@@ -1,4 +1,4 @@
-package com.boot.project;
+package com.boot.project.bike;
 
 import org.springframework.stereotype.Component;
 
