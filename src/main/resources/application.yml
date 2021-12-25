@@ -1,5 +1,8 @@
 ---
 spring:
- banner-mode: off
+ banner:
+  location: classpath:banner_print.txt
+ main:
+  banner-mode: off
 vogo_id: 12345
 bike_name: Vogo3go
