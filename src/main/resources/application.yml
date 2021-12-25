@@ -3,6 +3,6 @@ spring:
  banner:
   location: classpath:banner_print.txt
  main:
-  banner-mode: off
+  banner-mode: console
 vogo_id: 12345
 bike_name: Vogo3go
