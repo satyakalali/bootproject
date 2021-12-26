@@ -7,4 +7,5 @@ spring:
 vogo_id: 12345
 bike_name: Vogo3go
 cost: 50000
-bike_num: TS1234
+bike_num: TS1234\
+state: Telangana
