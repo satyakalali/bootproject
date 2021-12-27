@@ -9,7 +9,8 @@ import lombok.Data;
 @Component
 @Data
 @ConfigurationProperties
-///@PropertySource(value = "classpath:employee.yml", factory = YmlPropertySourceFactory.class)
+/// @PropertySource(value = "classpath:employee.yml", factory =
+/// YmlPropertySourceFactory.class)
 public class Employee {
 	private int emp_id;
 	private String empName;
