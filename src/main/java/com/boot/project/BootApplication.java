@@ -13,6 +13,12 @@ import org.springframework.context.annotation.Bean;
 import com.boot.project.bike.VogoBike;
 import com.boot.project.customyml.Employee;
 import com.boot.project.customyml.YmlPropertySourceLoader;
+import com.boot.project.events.ApplicationEnvPreparedEventListner;
+import com.boot.project.events.ApplicationPreparedEventListner;
+import com.boot.project.events.ApplicationReadyEventListner;
+import com.boot.project.events.ApplicationStartedEventListner;
+import com.boot.project.events.ApplicationStartingEventListner;
+import com.boot.project.events.ApplicatoinFaiedEventListner;
 import com.boot.project.model.VogoBikeModel;
 import com.boot.project.service.VogoService;
 
@@ -34,12 +40,12 @@ public class BootApplication {
 		 */
 
 		SpringApplicationBuilder applicationBuilder = new SpringApplicationBuilder(BootApplication.class);
-		ApplicationContext context = applicationBuilder.initializers(new YmlPropertySourceLoader()).build().run(args);
+		ApplicationContext context = applicationBuilder.listeners(new ApplicatoinFaiedEventListner(),new ApplicationReadyEventListner(),new ApplicationPreparedEventListner(),new ApplicationStartedEventListner(),new ApplicationEnvPreparedEventListner(), new ApplicationStartingEventListner()).initializers(new YmlPropertySourceLoader()).build().run(args);
 		Employee employee = context.getBean(Employee.class);
 		System.out.println(employee);
 	}
 
-	// @Bean
+	 @Bean
 	public CommandLineRunner commandLineRunner() {
 
 		return (args) -> {
