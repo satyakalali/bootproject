@@ -4,9 +4,39 @@ spring:
   location: classpath:banner_print.txt
  main:
   banner-mode: console
+ profiles:
+  active: dev
 vogo_id: 12345
 bike_name: Vogo3go
 cost: 50000
 bike_num: TS1234
 state: Telangana
 ...
+---
+spring:
+ config:
+  activate:
+   on-profile: dev
+ datasource:
+  username: OIPASIT
+  password: OIPASIT
+  url: jdbc:oracle:thin:@localhost:1521:orcl
+  driverclassname: oracle.jdbc.driver.OracleDriver
+ jpa:
+  show-sql: true
+  generate-ddl: true 
+... 
+---
+spring:
+ config:
+  activate:
+   on-profile: qa
+ datasource:
+  username: OIPASIT
+  password: OIPASIT
+  url: jdbc:oracle:thin:@localhost:1521:orcl
+  driverclassname: oracle.jdbc.driver.OracleDriver
+ jpa:
+  show-sql: true
+  generate-ddl: true 
+...  
