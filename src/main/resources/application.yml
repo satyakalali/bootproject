@@ -12,9 +12,15 @@ cost: 50000
 bike_num: TS1234
 state: Telangana
 autoconfiureenable: true
+server:
+ port: 8082
 ...
 ---
 spring:
+ mvc:
+  view:
+   prefix: /WEB-INF/
+   suffix: .jsp
  config:
   activate:
    on-profile: dev
