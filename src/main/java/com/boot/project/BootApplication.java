@@ -10,6 +10,7 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 
+import com.boot.project.autoconfig.IrctcBookTicket;
 import com.boot.project.bike.VogoBike;
 import com.boot.project.customyml.Employee;
 import com.boot.project.customyml.YmlPropertySourceLoader;
@@ -41,11 +42,14 @@ public class BootApplication {
 
 		SpringApplicationBuilder applicationBuilder = new SpringApplicationBuilder(BootApplication.class);
 		ApplicationContext context = applicationBuilder.listeners(new ApplicatoinFaiedEventListner(),new ApplicationReadyEventListner(),new ApplicationPreparedEventListner(),new ApplicationStartedEventListner(),new ApplicationEnvPreparedEventListner(), new ApplicationStartingEventListner()).initializers(new YmlPropertySourceLoader()).build().run(args);
-		Employee employee = context.getBean(Employee.class);
-		System.out.println(employee);
+	/*	Employee employee = context.getBean(Employee.class);
+		System.out.println(employee);*/
+		
+		IrctcBookTicket bookTicket = context.getBean(IrctcBookTicket.class);
+		System.out.println(bookTicket.bookOrder("satya"));
 	}
 
-	 @Bean
+	 // @Bean
 	public CommandLineRunner commandLineRunner() {
 
 		return (args) -> {

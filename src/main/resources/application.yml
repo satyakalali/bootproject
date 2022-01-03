@@ -11,6 +11,7 @@ bike_name: Vogo3go
 cost: 50000
 bike_num: TS1234
 state: Telangana
+autoconfiureenable: true
 ...
 ---
 spring:
