@@ -9,6 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
+import org.springframework.web.client.RestTemplate;
 
 import com.boot.project.autoconfig.IrctcBookTicket;
 import com.boot.project.bike.VogoBike;
@@ -41,19 +42,31 @@ public class BootApplication {
 		 */
 
 		SpringApplicationBuilder applicationBuilder = new SpringApplicationBuilder(BootApplication.class);
-		ApplicationContext context = applicationBuilder.listeners(new ApplicatoinFaiedEventListner(),new ApplicationReadyEventListner(),new ApplicationPreparedEventListner(),new ApplicationStartedEventListner(),new ApplicationEnvPreparedEventListner(), new ApplicationStartingEventListner()).initializers(new YmlPropertySourceLoader()).build().run(args);
-	/*	Employee employee = context.getBean(Employee.class);
-		System.out.println(employee);*/
-		
+		ApplicationContext context = applicationBuilder
+				.listeners(new ApplicatoinFaiedEventListner(), new ApplicationReadyEventListner(),
+						new ApplicationPreparedEventListner(), new ApplicationStartedEventListner(),
+						new ApplicationEnvPreparedEventListner(), new ApplicationStartingEventListner())
+				.initializers(new YmlPropertySourceLoader()).build().run(args);
+		/*
+		 * Employee employee = context.getBean(Employee.class);
+		 * System.out.println(employee);
+		 */
+
 		IrctcBookTicket bookTicket = context.getBean(IrctcBookTicket.class);
 		System.out.println(bookTicket.bookOrder("satya"));
 	}
 
-	 // @Bean
+	// @Bean
 	public CommandLineRunner commandLineRunner() {
 
 		return (args) -> {
 			throw new FileNotFoundException("C:/satya.txt not found.");
 		};
+	}
+
+	@Bean
+	public RestTemplate restTemplate() {
+
+		return new RestTemplate();
 	}
 }
