@@ -1,5 +1,9 @@
 ---
+razorpay:
+ url: http://www.googles.com 
 spring:
+ application:
+  name: boot
  banner:
   location: classpath:banner_print.txt
  main:
@@ -16,6 +20,31 @@ server:
  port: 8082
  servlet:
   context-path: /bike
+info:
+ author: satya
+ version: 1.0
+ released: 10-10-2021
+ features: actuator
+management:
+ server:
+  port: 8087
+ endpoints:
+  web:
+   exposure:
+    include:
+    - "*"
+   base-path: /management
+   discovery:
+    enabled: false
+ endpoint:
+  health:
+   show-components: always
+   show-details: always
+   group: 
+    satycare:
+     include: 
+     - db
+     - diskSpace
 ...
 ---
 spring:
@@ -33,7 +62,7 @@ spring:
   driverclassname: oracle.jdbc.driver.OracleDriver
  jpa:
   show-sql: true
-  generate-ddl: true 
+  generate-ddl: true
 ... 
 ---
 spring:
