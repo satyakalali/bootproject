@@ -12,7 +12,7 @@ public class JmsQueueManagementEndpoint {
 	@ReadOperation
 	public int length(String queueName) {
 		System.out.println("length queueName : " + queueName);
-		return 10;
+		return 20;
 	}
 
 	@WriteOperation
